@@ -10,8 +10,8 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
   <title>Homework 06: Weather Forecast</title>
- <!--Ultimately move this to an external style sheet-->
- <style>
+  <!--Ultimately move this to an external style sheet-->
+  <style>
     input[type=text] {
       width: 65%
     }
@@ -42,75 +42,24 @@
     </section>
     <section class="rightSide col" style="float: left; width: 60%; margin-right: 5%; float: right; height: 600px;">
       <!--Current weather conditions Searched City, or saved City button, depending on which is clicked-->
-      <div class="currentWea" style="border: 2px; border-color:green; border-style: solid; padding: 5px;height: 60%">
+      <div class="current" id="currentWeather"
+        style="border: 2px; border-color:green; border-style: solid; padding: 5px;height: 60%">
 
       </div>
 
       <!--5 Day Forecast for Searched City, or saved City button, depending on which is clicked-->
-      <div class="5DayFor" style="border: 2px; border-color:magenta; border-style: solid; padding: 5px;height: 40%">
+      <div class="5DayForecast"
+        style="border: 2px; border-color:magenta; border-style: solid; padding: 5px;height: 40%">
 
       </div>
 
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
   <!--Ultimately, move all of the below into an external .js file-->
-  <script type="text/javascript">
-
-    var APIKey = "2fd18f12ec9c7da34ce699baf01b9739";
-    var city = "";
-
-    //Search button push function, initial city call
-    $("#searchBtn").click(function (event) {
-      event.preventDefault();
-      var city = $("#searchInput").val();
-      //var numRecs = $("#records").val();
-      //var startYear = $("#startYear").val();
-      //var endYear = $("#endYear").val();
-      console.log(event);
-      console.log(city);
-
-      // AJAX call for current Weather
-      // The URL we need to query Current Weather by city name
-      var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-      // The URL we need to query 5 Day Forecast by city name
-      var queryURL5Day = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).then(function (response) {
-
-        // Create CODE HERE to Log the queryURL
-        console.log(queryURL);
-        // Create CODE HERE to log the resulting object
-        console.log(response);
-        // Create CODE HERE to calculate the temperature (converted from Kelvin)
-
-
-
-        // Hint: To convert from Kelvin to Fahrenheit: F = (K - 273.15) * 1.80 + 32
-        // Create CODE HERE to dump the temperature content into HTML
-
-      },
-        //AJAX call for 5 Day forecast
-        $.ajax({
-          url: queryURL5Day,
-          method: "GET"
-        }).then(function (response5Day) {
-
-          // Create CODE HERE to Log the queryURL
-          console.log(queryURL5Day);
-          // Create CODE HERE to log the resulting object
-          console.log(response5Day);
-
-
-
-
-        }
-        ));
-    })
-  </script>
+  <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
