@@ -24,7 +24,7 @@
 
         console.log(response);
 // Define variables for currentWeather forecast
-        var weatherBox = $("<div>").addClass("card");
+        var weatherBox = $("<div>").addClass("card text-white bg-primary mb-3");
         var date = moment().format("lll");
         var TempF = Math.floor(response.main.temp - 273.15) * 1.80 + 32;
         var cityDateEl = $("<h4>").addClass("card-title").text(response.name + " " + "(" + date + ")");
@@ -44,19 +44,99 @@
         },
 
 //AJAX call for 5 Day forecast. Do this next, should be able to recreate card format above, and append 5 to that area.
+
+//On the forecast response.list array we want items [5, 13, 21, 29, 37]. These are the 3pm values for the next 5 days
         $.ajax({
             url: queryURL5Day,
             method: "GET"
         }).then(function (response5Day) {
 
-
-            // Create CODE HERE to log the resulting object
             console.log(response5Day);
+            //Testing time call
+            //console.log(response5Day.list[5]);
+
+// Define variables for first day of five Day forecast
+
+//Doing this in the sloppiest way possible due to lack of time, would clean up and turn into a for loop
+//1 of  5 Day
+var fiveBox = $("<div>").addClass("card text-white bg-success mb-3");
+var date = moment(response5Day.list[5].dt_txt).format("lll");
+var TempF = Math.floor(response5Day.list[5].main.temp - 273.15) * 1.80 + 32;
+var tempEl = $("<p>").addClass("card-text").text("Temp: " + TempF + " F");
+var humidityEl = $("<p>").addClass("card-text text-nowrap").text("Humidity: " + response5Day.list[5].main.humidity + " %");
+
+//Append data to the fiveBox card
+$(fiveBox).append(date);
+$(fiveBox).append(tempEl);
+$(fiveBox).append(humidityEl);
+
+//Then append fiveBox card to #fiveDay div
+$("#fiveDay").append(fiveBox);
+
+//2 of 5 Day
+fiveBox = $("<div>").addClass("card text-white bg-success mb-3");
+date = moment(response5Day.list[13].dt_txt).format("lll");
+TempF = Math.floor(response5Day.list[13].main.temp - 273.15) * 1.80 + 32;
+tempEl = $("<p>").addClass("card-text").text("Temp: " + TempF + " F");
+humidityEl = $("<p>").addClass("card-text text-nowrap").text("Humidity: " + response5Day.list[13].main.humidity + " %");
+
+//Append data to the fiveBox card
+$(fiveBox).append(date);
+$(fiveBox).append(tempEl);
+$(fiveBox).append(humidityEl);
+
+//Then append fiveBox card to #fiveDay div
+$("#fiveDay").append(fiveBox);
+
+//3 of 5 Day
+fiveBox = $("<div>").addClass("card text-white bg-warning mb-3");
+date = moment(response5Day.list[21].dt_txt).format("lll");
+TempF = Math.floor(response5Day.list[21].main.temp - 273.15) * 1.80 + 32;
+tempEl = $("<p>").addClass("card-text").text("Temp: " + TempF + " F");
+humidityEl = $("<p>").addClass("card-text text-nowrap").text("Humidity: " + response5Day.list[21].main.humidity + " %");
+
+//Append data to the fiveBox card
+$(fiveBox).append(date);
+$(fiveBox).append(tempEl);
+$(fiveBox).append(humidityEl);
+
+//Then append fiveBox card to #fiveDay div
+$("#fiveDay").append(fiveBox);
+
+//4 of 5 Day
+fiveBox = $("<div>").addClass("card text-white bg-warning mb-3");
+date = moment(response5Day.list[29].dt_txt).format("lll");
+TempF = Math.floor(response5Day.list[29].main.temp - 273.15) * 1.80 + 32;
+tempEl = $("<p>").addClass("card-text").text("Temp: " + TempF + " F");
+humidityEl = $("<p>").addClass("card-text text-nowrap").text("Humidity: " + response5Day.list[29].main.humidity + " %");
+
+//Append data to the fiveBox card
+$(fiveBox).append(date);
+$(fiveBox).append(tempEl);
+$(fiveBox).append(humidityEl);
+
+//Then append fiveBox card to #fiveDay div
+$("#fiveDay").append(fiveBox);
+
+//5 of 5 Day
+fiveBox = $("<div>").addClass("card text-white bg-danger mb-3");
+date = moment(response5Day.list[37].dt_txt).format("lll");
+TempF = Math.floor(response5Day.list[37].main.temp - 273.15) * 1.80 + 32;
+tempEl = $("<p>").addClass("card-text").text("Temp: " + TempF + " F");
+humidityEl = $("<p>").addClass("card-text text-nowrap").text("Humidity: " + response5Day.list[37].main.humidity + " %");
+
+//Append data to the fiveBox card
+$(fiveBox).append(date);
+$(fiveBox).append(tempEl);
+$(fiveBox).append(humidityEl);
+
+//Then append fiveBox card to #fiveDay div
+$("#fiveDay").append(fiveBox);
 
 
+}
 
-
-            }
+            
             ));
     })
 })
