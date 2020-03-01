@@ -5,11 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  
+
   <title>Homework 06: Weather Forecast</title>
   <!--Ultimately move this to an external style sheet-->
   <style>
@@ -28,7 +29,7 @@
     <section class="leftSide col" style="float: left; width: 30%; margin-left: 5%; float: left; height: 600px;">
       <!--Search input box and button which will be placed upper left-->
       <div class="search row"
-        style="border: 2px; position: relative; border-color: blue; border-style: solid; padding: 5px; height: 10%;">
+        style="border: 2px; position: relative; padding: 5px; height: 10%;">
 
         <input type="text" id="searchInput" class="form-control" aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-default">
@@ -36,21 +37,21 @@
         <!--Previous saved city searches which will trigger an up to date call of the information from API according to defined parameters-->
 
       </div>
-      <div class="savedBtns col"
-        style="border: 2px; border-color: red; border-style: solid; position: relative; height: 90%; padding: 5px;">
+      <div class="savedBtns col" id="buttonStack"
+        style="border: 2px;  position: relative; height: 90%; padding: 5px;">
 
       </div>
     </section>
-    <section class="rightSide col" style="float: left; width: 60%; margin-right: 5%; float: right; height: 600px;">
+    <section class="rightSide col" style="float: left; width: 60%; margin-right: 5%; float: right; height: 300px;">
       <!--Current weather conditions Searched City, or saved City button, depending on which is clicked-->
       <div class="current" id="currentWeather"
-        style="border: 2px; border-color:green; border-style: solid; padding: 5px;height: 60%">
+        style="border: 2px; padding: 5px; height: 60%; margin-bottom: 20px;">
 
       </div>
 
       <!--5 Day Forecast for Searched City, or saved City button, depending on which is clicked-->
       <div class="5DayForecast" id="fiveDay"
-        style="border: 2px; border-color:magenta; border-style: solid; padding: 5px;height: 40%">
+        style="border: 2px; padding: 5px;">
 
       </div>
 
@@ -58,7 +59,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  
+
 
   <!--Ultimately, move all of the below into an external .js file-->
   <script type="text/javascript" src="script.js"></script>
